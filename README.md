@@ -1,1 +1,0 @@
-# 202505_prova_pratica
