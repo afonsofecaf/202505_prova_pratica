@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Prova Prática – Procedure e Trigger no Supabase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem auto;
+      max-width: 800px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2 {
+      color: #005792;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Link de Acesso: https://afonsofecaf.github.io/202505_prova_pratica</h1>
+  <h1>🧪 Prova Prática – Procedure e Trigger no Supabase</h1>
+
+  <h2>📌 Situação:</h2>
+
+  <p>
+    No Supabase, você deve criar uma <strong>procedure</strong> e uma <strong>trigger</strong> para que, sempre que for realizado um <code>INSERT</code> na tabela <code>aluno</code>, automaticamente seja inserido um registro na tabela <code>logs</code> contendo:
+  </p>
+
+  <ul>
+    <li>O <strong>ID</strong> do aluno inserido.</li>
+    <li>A <strong>data e hora</strong> do momento da inserção.</li>
+  </ul>
+
+  <h2>✅ O que você precisa fazer:</h2>
+
+  <ol>
+    <li>Criar a tabela <code>logs</code> do zero, com os campos necessários.</li>
+    <li>Criar uma <strong>procedure</strong> que insira na tabela <code>logs</code>.</li>
+    <li>Criar uma <strong>trigger</strong> que chame essa procedure após um <code>INSERT</code> na tabela <code>aluno</code>.</li>
+    <li>Executar o comando <code>INSERT</code> abaixo e garantir que ele funcione.</li>
+    <li>Salvar e entregar todos os comandos SQL em um único arquivo com extensão <code>.sql</code>.</li>
+  </ol>
+
+  <h2>📦 Estrutura da tabela <code>aluno</code>:</h2>
+
+  <pre>
+CREATE TABLE aluno (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL
+);
+  </pre>
+
+  <h2>⚠️ Regras obrigatórias:</h2>
+
+  <ul>
+    <li>Você deve criar a tabela <code>logs</code> com os campos <code>aluno_id</code> (inteiro) e <code>data_insercao</code> (timestamp).</li>
+    <li>A procedure deve ser parametrizada ou adequada para inserir os dados corretamente na <code>logs</code>.</li>
+    <li>A trigger deve ser configurada para acionar a procedure automaticamente após um <code>INSERT</code> na tabela <code>aluno</code>.</li>
+  </ul>
+
+  <h2>🚀 Comando de inserção obrigatório:</h2>
+
+  <pre>
+INSERT INTO aluno (nome, email) VALUES ('João Silva', 'joao.silva@example.com');
+  </pre>
+
+  <h2>📝 Entrega:</h2>
+
+  <p>
+    Entregue um arquivo chamado <strong>prova_trigger.sql</strong> contendo, em sequência:
+  </p>
+
+  <ul>
+    <li>O <code>CREATE TABLE</code> da tabela <code>logs</code>.</li>
+    <li>O <code>CREATE PROCEDURE</code> ou <code>CREATE FUNCTION</code> dependendo do modelo escolhido.</li>
+    <li>A <code>CREATE TRIGGER</code>.</li>
+    <li>O comando <code>INSERT</code> para teste.</li>
+  </ul>
+
+  <p>
+    O arquivo deve ser testável diretamente no Supabase, executando todos os comandos sem necessidade de ajustes.
+  </p>
+
+</body>
+</html>
