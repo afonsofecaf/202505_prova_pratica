@@ -12,15 +12,23 @@
 
   <h1 class="text-primary">🧪 Prova Prática Advanced Databases Turma 01 (22/05/2025) – Envio de CSV para Firebase (1,5 ponto)</h1>
 
-  <p><strong>Objetivo:</strong> Criar um script no <strong>Google Colab</strong> que leia um arquivo CSV e envie seus dados para o Firebase Firestore, respeitando uma estrutura específica de nomeação de collections e documentos.</p>
+  <p><strong>Objetivo:</strong> Criar um script no <strong>Google Colab</strong> que leia um arquivo CSV e envie seus dados para o Firebase Firestore, respeitando uma estrutura específica de nomeação de collections e documentos. A prova irá avaliar, além do envio geral dos dados, a segregação automática das collections por tipo de dado.</p>
 
   <h2>📌 Instruções</h2>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Baixe automaticamente um arquivo CSV da <a href="https://archive.ics.uci.edu/" target="_blank">UCI Machine Learning Repository</a>.</li>
     <li class="list-group-item">Leia o conteúdo do arquivo linha a linha.</li>
     <li class="list-group-item">Crie uma collection no Firebase com o nome do arquivo (sem a extensão <code>.csv</code>).</li>
-    <li class="list-group-item">Insira cada linha do CSV como um documento separado.</li>
-    <li class="list-group-item">Os documentos devem ter um ID no padrão: <code>input001</code>, <code>input002</code>, etc.</li>
+    <li class="list-group-item">Insira cada linha do CSV como um documento separado, usando IDs no padrão <code>input001</code>, <code>input002</code>, etc.</li>
+    <li class="list-group-item">
+      <strong>Regra obrigatória:</strong> Após criar a collection geral, crie <b>collections adicionais automaticamente, segregando os dados conforme o tipo de cada coluna</b>:
+      <ul>
+        <li>Identifique no DataFrame todos os tipos de dados presentes (ex: numérico, string, booleano).</li>
+        <li>Para cada tipo identificado, crie uma nova collection com nome no padrão <code>nomearquivo_tipo</code> (exemplo: <code>iris_numerico</code>, <code>iris_string</code>).</li>
+        <li>Cada collection segregada deve conter apenas as colunas correspondentes ao tipo de dado (exemplo: apenas as colunas numéricas na collection <code>_numerico</code>).</li>
+        <li>Mantenha o padrão de IDs <code>inputNNN</code> nas collections segregadas.</li>
+      </ul>
+    </li>
   </ul>
 
   <div class="alert alert-info my-4" role="alert">
@@ -33,7 +41,8 @@
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Script em <strong>Python</strong> no <strong>Google Colab</strong>.</li>
     <li class="list-group-item">Utilize o <strong>Firebase Admin SDK</strong> para envio dos dados.</li>
-    <li class="list-group-item">Inclua prints de tela mostrando a collection e os documentos criados no Firestore no colab.</li>
+    <li class="list-group-item">Inclua prints de tela mostrando a collection geral e as collections segregadas criadas no Firestore no colab.</li>
+    <li class="list-group-item">O notebook deve estar bem documentado e com instruções claras.</li>
   </ul>
 
   <h2>⚙️ Como fazer no Google Colab</h2>
@@ -41,7 +50,8 @@
     <li class="list-group-item">Configure o Firebase: gere a chave JSON e faça o upload no Colab.</li>
     <li class="list-group-item">Instale o Firebase Admin SDK: <code>!pip install firebase-admin</code></li>
     <li class="list-group-item">Utilize <code>pandas</code> para ler o CSV: <code>import pandas as pd</code></li>
-    <li class="list-group-item">Envie os dados para o Firestore usando o SDK, criando documentos com IDs no padrão solicitado.</li>
+    <li class="list-group-item">Envie todos os dados para a collection geral, criando documentos com IDs no padrão solicitado.</li>
+    <li class="list-group-item">Automaticamente, separe os dados por tipo (numérico, string, booleano) e envie cada subconjunto para uma collection própria, conforme explicado acima.</li>
     <li class="list-group-item">Compartilhe o link público do Colab no formulário abaixo.</li>
   </ol>
 
@@ -60,23 +70,27 @@
     <tbody>
       <tr>
         <td>Leitura correta do CSV</td>
-        <td>0,3</td>
+        <td>0,2</td>
       </tr>
       <tr>
-        <td>Collection com nome correto (sem extensão)</td>
+        <td>Collection geral criada com nome correto (sem extensão)</td>
         <td>0,2</td>
       </tr>
       <tr>
         <td>Criação de documentos por linha</td>
-        <td>0,3</td>
+        <td>0,2</td>
       </tr>
       <tr>
         <td>IDs no formato <code>inputNNN</code> com zeros à esquerda</td>
-        <td>0,3</td>
+        <td>0,2</td>
+      </tr>
+      <tr>
+        <td>Envio dos dados segregados em collections por tipo de dado</td>
+        <td>0,4</td>
       </tr>
       <tr>
         <td>Notebook bem documentado com instruções e prints de tela</td>
-        <td>0,4</td>
+        <td>0,3</td>
       </tr>
     </tbody>
   </table>
