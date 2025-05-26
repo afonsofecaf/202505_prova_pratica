@@ -2,96 +2,65 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Prova Prática – Envio de CSV para Firebase</title>
+  <title>Prova Prática – QuickSort em Rust</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="container my-5">
+<body class="container py-5">
 
-  <h1 class="text-primary">Link de Acesso:</h1>
-  <p><a href="https://afonsofecaf.github.io/202505_prova_pratica" target="_blank">https://afonsofecaf.github.io/202505_prova_pratica</a></p>
+  <h1>Link de Acesso: https://afonsofecaf.github.io/202505_prova_pratica</h1>
+  <h1 class="mb-4">🧪 Prova Prática – QuickSort em Rust</h1>
 
-  <h1 class="text-primary">🧪 Prova Prática Advanced Databases Turma 01 (22/05/2025) – Envio de CSV para Firebase (1,5 ponto)</h1>
+  <h2>📌 Situação:</h2>
 
-  <p><strong>Objetivo:</strong> Criar um script no <strong>Google Colab</strong> que leia um arquivo CSV e envie seus dados para o Firebase Firestore, respeitando uma estrutura específica de nomeação de collections e documentos.</p>
+  <p>
+    Você deve implementar o algoritmo de ordenação <strong>QuickSort</strong> em Rust para o seguinte array predefinido:
+  </p>
 
-  <h2>📌 Instruções</h2>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Baixe automaticamente um arquivo CSV da <a href="https://archive.ics.uci.edu/" target="_blank">UCI Machine Learning Repository</a>.</li>
-    <li class="list-group-item">Leia o conteúdo do arquivo linha a linha.</li>
-    <li class="list-group-item">Crie uma collection no Firebase com o nome do arquivo (sem a extensão <code>.csv</code>).</li>
-    <li class="list-group-item">Insira cada linha do CSV como um documento separado.</li>
-    <li class="list-group-item">Os documentos devem ter um ID no padrão: <code>input001</code>, <code>input002</code>, etc.</li>
-  </ul>
+  <pre class="bg-light p-3 rounded">
+let mut arr = [34, 7, 23, 32, 5, 62, 31, 12, 43, 3];
+  </pre>
 
-  <div class="alert alert-info my-4" role="alert">
-    <strong>Exemplo de arquivo sugerido:</strong><br>
-    Dataset: <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data" target="_blank">Iris CSV</a><br>
-    Nome esperado ao salvar: <code>iris.csv</code>
-  </div>
+  <h2>✅ Tarefas:</h2>
 
-  <h2>🧾 Requisitos</h2>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Script em <strong>Python</strong> no <strong>Google Colab</strong>.</li>
-    <li class="list-group-item">Utilize o <strong>Firebase Admin SDK</strong> para envio dos dados.</li>
-    <li class="list-group-item">Inclua prints de tela mostrando a collection e os documentos criados no Firestore no colab.</li>
-  </ul>
-
-  <h2>⚙️ Como fazer no Google Colab</h2>
-  <ol class="list-group list-group-numbered">
-    <li class="list-group-item">Configure o Firebase: gere a chave JSON e faça o upload no Colab.</li>
-    <li class="list-group-item">Instale o Firebase Admin SDK: <code>!pip install firebase-admin</code></li>
-    <li class="list-group-item">Utilize <code>pandas</code> para ler o CSV: <code>import pandas as pd</code></li>
-    <li class="list-group-item">Envie os dados para o Firestore usando o SDK, criando documentos com IDs no padrão solicitado.</li>
-    <li class="list-group-item">Compartilhe o link público do Colab no formulário abaixo.</li>
+  <ol>
+    <li>
+      <strong>Nível 1:</strong> Utilize a biblioteca padrão do Rust para ordenar o array.<br>
+      <em>Dica:</em> Utilize métodos como <code>sort()</code> ou outras funções utilitárias do módulo <code>std::collections</code>.
+    </li>
+    <li>
+      <strong>Nível 2:</strong> Implemente o algoritmo QuickSort <strong>do zero</strong>, criando uma <code>struct</code> e implementando as funções de ordenação dentro de um bloco <code>impl</code>.
+    </li>
   </ol>
 
-  <div class="alert alert-warning my-4" role="alert">
-    ⚠️ <strong>Atenção:</strong> certifique-se de que o link do Google Colab esteja com a opção <strong>"Qualquer pessoa com o link pode visualizar"</strong> ativada!
-  </div>
+  <h2>📝 Requisitos obrigatórios:</h2>
 
-  <h2>🧮 Critérios de Avaliação</h2>
-  <table class="table table-bordered">
-    <thead class="table-light">
-      <tr>
-        <th>Critério</th>
-        <th>Pontuação</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Leitura correta do CSV</td>
-        <td>0,3</td>
-      </tr>
-      <tr>
-        <td>Collection com nome correto (sem extensão)</td>
-        <td>0,2</td>
-      </tr>
-      <tr>
-        <td>Criação de documentos por linha</td>
-        <td>0,3</td>
-      </tr>
-      <tr>
-        <td>IDs no formato <code>inputNNN</code> com zeros à esquerda</td>
-        <td>0,3</td>
-      </tr>
-      <tr>
-        <td>Notebook bem documentado com instruções e prints de tela</td>
-        <td>0,4</td>
-      </tr>
-    </tbody>
-  </table>
+  <ul>
+    <li>No Nível 1, o código deve ser direto, utilizando funções nativas.</li>
+    <li>No Nível 2, é obrigatório o uso de <code>struct</code> e <code>impl</code> para organizar o algoritmo QuickSort.</li>
+    <li>O programa deve imprimir o array original e o array ordenado após cada execução.</li>
+    <li>Comente o código explicando o funcionamento das partes principais.</li>
+  </ul>
 
-  <div class="d-grid gap-2">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6Jx7ap-dqVKris7d5cnXSTDQrkuGCZ6eKhSCugJH79UjiLw/viewform?usp=dialog" 
-       class="btn btn-danger btn-lg" target="_blank">
-      📥 Enviar Prova Prática (Clique Aqui)
-    </a>
-  </div>
+  <h2>🚀 Exemplo de saída esperada:</h2>
 
-  <footer class="text-muted mt-5">
-    Última atualização: Maio de 2025 | Disciplina de Advanced Databases and Big Data
-  </footer>
+  <pre class="bg-light p-3 rounded">
+Array original: [34, 7, 23, 32, 5, 62, 31, 12, 43, 3]
+Array ordenado: [3, 5, 7, 12, 23, 31, 32, 34, 43, 62]
+  </pre>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <h2>📦 Entrega:</h2>
+
+  <p>
+    Entregue um arquivo chamado <strong>main.rs</strong> contendo as duas implementações (<strong>Nível 1</strong> e <strong>Nível 2</strong>), bem organizadas e comentadas.
+  </p>
+
+  <p>
+    Ao finalizar, envie o arquivo através do botão abaixo:
+  </p>
+
+  <a class="btn btn-danger btn-lg w-100 mt-4" href="https://docs.google.com/forms/d/e/1FAIpQLSc-s5WjfeY6aRIHKPiuKtItKzZOX-J_EU8CenLxIhFpYiWQpg/viewform?usp=dialog" target="_blank">
+    🚀 Enviar arquivo main.rs
+  </a>
+
 </body>
 </html>
