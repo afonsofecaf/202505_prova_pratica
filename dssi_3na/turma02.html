@@ -2,59 +2,75 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Prova Prática – Implementação de Pilha em Rust</title>
+  <title>Prova Prática – Pilha com Limites e Operações em Rust</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="container py-5">
-    
+
   <h1>Link de Acesso: https://afonsofecaf.github.io/202505_prova_pratica</h1>
-  <h1 class="mb-4">🧪 Prova Prática – Implementação de Pilha em Rust</h1>
+  <h1 class="mb-4">🧪 Prova Prática – Pilha com Limite e Operações em Rust</h1>
 
   <h2>📌 Situação:</h2>
-
   <p>
-    Você deve implementar, em Rust, uma <strong>Pilha (Stack)</strong> que possua as seguintes operações:
+    Você deve implementar, em Rust, uma estrutura de dados do tipo <strong>Pilha (Stack)</strong>, com controle de capacidade e operações típicas. A implementação deve ser feita por etapas, de forma estruturada, e usando boas práticas como verificação de erros.
   </p>
 
-  <ul>
-    <li><code>push</code>: inserir um elemento no topo da pilha.</li>
-    <li><code>pop</code>: remover o elemento do topo da pilha.</li>
-    <li><code>peek</code>: visualizar o elemento no topo da pilha sem removê-lo.</li>
-    <li><code>is_empty</code>: verificar se a pilha está vazia.</li>
-  </ul>
-
-  <p>
-    Utilize uma <code>struct</code> para representar a pilha e implemente as operações com <code>impl</code>.
-  </p>
-
-  <h2>✅ Tarefas:</h2>
-
+  <h2>✅ Etapas:</h2>
   <ol>
-    <li>Defina uma <code>struct</code> chamada <strong>Stack</strong> com um vetor interno.</li>
-    <li>Implemente as funções mencionadas acima.</li>
-    <li>No <code>main</code>, crie uma pilha, insira alguns elementos, remova e imprima o estado da pilha após cada operação.</li>
-    <li>Comente o código explicando o funcionamento de cada parte.</li>
+    <li>
+      Crie uma <code>struct Stack</code> com:
+      <ul>
+        <li>Um vetor interno (<code>Vec&lt;i32&gt;</code>);</li>
+        <li>Um campo <code>capacity: usize</code> que define o tamanho máximo da pilha.</li>
+      </ul>
+    </li>
+    <li>Implemente as funções:
+      <ul>
+        <li><code>new(capacity: usize) -> Stack</code>: cria uma nova pilha vazia com capacidade definida.</li>
+        <li><code>push(&mut self, value: i32) -> bool</code>: insere um elemento se não estiver cheia, retorna <code>true</code> se conseguir.</li>
+        <li><code>pop(&mut self) -> Option&lt;i32&gt;</code>: remove e retorna o elemento do topo.</li>
+        <li><code>peek(&self) -> Option&lt;&i32&gt;</code>: retorna referência ao elemento no topo sem removê-lo.</li>
+        <li><code>is_empty(&self) -> bool</code></li>
+        <li><code>is_full(&self) -> bool</code></li>
+        <li><code>len(&self) -> usize</code></li>
+      </ul>
+    </li>
+    <li>No <code>main</code>:
+      <ul>
+        <li>Crie uma pilha com capacidade 3.</li>
+        <li>Insira três elementos e exiba o estado após cada <code>push</code>.</li>
+        <li>Tente inserir um quarto elemento e exiba mensagem de erro.</li>
+        <li>Visualize o topo com <code>peek</code> e exiba o resultado.</li>
+        <li>Remova os elementos um a um, mostrando o estado da pilha após cada <code>pop</code>.</li>
+        <li>Tente remover um item de uma pilha vazia e mostre a mensagem.</li>
+      </ul>
+    </li>
+    <li>
+      Comente o código explicando o funcionamento de cada bloco e função.
+    </li>
   </ol>
 
-  <h2>🚀 Exemplo de uso esperado:</h2>
-
+  <h2>🚀 Exemplo de saída esperada:</h2>
   <pre class="bg-light p-3 rounded">
-Pilha criada.
-Inserido: 10
-Inserido: 20
-Topo da pilha: 20
+Pilha criada com capacidade 3.
+Inserindo 10... OK
+Inserindo 20... OK
+Inserindo 30... OK
+Tentando inserir 40... Pilha cheia!
+Topo da pilha: 30
+Removido: 30
 Removido: 20
-Pilha após remoção: [10]
+Removido: 10
+Tentando remover... Pilha vazia!
   </pre>
 
   <h2>📦 Entrega:</h2>
-
   <p>
-    Entregue um arquivo chamado <strong>main.rs</strong> contendo toda a implementação e os testes de funcionamento.
+    Entregue um único arquivo chamado <strong>main.rs</strong> contendo toda a implementação da pilha e testes no <code>main()</code>.
   </p>
 
   <p>
-    Ao finalizar, envie o arquivo através do botão abaixo:
+    Após finalizar, envie o arquivo através do botão abaixo:
   </p>
 
   <a class="btn btn-danger btn-lg w-100 mt-4" href="https://docs.google.com/forms/d/e/1FAIpQLSfbRktxqJgO8H-5iMda0eU9pGbciJ_wEK0E14o9p0zP4_r1Zg/viewform?usp=dialog" target="_blank">

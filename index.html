@@ -2,66 +2,79 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Prova Prática – Procedure e Trigger no Supabase (Versão Avançada)</title>
+  <title>Prova Prática – Pilha com Limites e Operações em Rust</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="container my-5">
+<body class="container py-5">
 
-  <h1 class="text-primary">Link de Acesso: https://afonsofecaf.github.io/202505_prova_pratica</h1>
+  <h1>Link de Acesso: https://afonsofecaf.github.io/202505_prova_pratica</h1>
+  <h1 class="mb-4">🧪 Prova Prática – Pilha com Limite e Operações em Rust</h1>
 
-  <h1 class="text-primary">🧪 Prova Prática – Procedure e Trigger no Supabase (Versão Avançada)</h1>
-
-  <h2 class="text-secondary mt-4">📌 Situação:</h2>
+  <h2>📌 Situação:</h2>
   <p>
-    Você foi contratado para modelar parte do sistema de gestão de uma instituição de ensino. Seu desafio será criar três tabelas interligadas e configurar a lógica de negócio de forma automatizada com o uso de <strong>function</strong> e <strong>trigger</strong>.
+    Você deve implementar, em Rust, uma estrutura de dados do tipo <strong>Pilha (Stack)</strong>, com controle de capacidade e operações típicas. A implementação deve ser feita por etapas, de forma estruturada, e usando boas práticas como verificação de erros.
   </p>
 
-  <h2 class="text-secondary mt-4">🎯 Objetivo:</h2>
-  <p>
-    Sempre que um novo aluno for matriculado em um curso, o sistema deverá:
-  </p>
-  <ul>
-    <li>Registrar a matrícula em uma tabela intermediária.</li>
-    <li>Gerar automaticamente um <strong>log</strong> dessa matrícula.</li>
-    <li>Atualizar a quantidade total de alunos matriculados no respectivo curso.</li>
-  </ul>
-
-  <h2 class="text-secondary mt-4">📁 Estrutura de dados obrigatória:</h2>
-  <p>Você deverá criar e utilizar as seguintes tabelas:</p>
-
-  <ul>
-    <li><strong>aluno</strong>: deve conter pelo menos os campos <code>id</code>, <code>nome</code> e <code>email</code>.</li>
-    <li><strong>curso</strong>: deve conter pelo menos os campos <code>id</code>, <code>nome</code> e <code>qtd_matriculados</code>.</li>
-    <li><strong>matricula</strong>: deve conter pelo menos os campos <code>id</code>, <code>aluno_id</code> e <code>curso_id</code>.</li>
-    <li><strong>logs_matricula</strong>: deve conter pelo menos os campos <code>id</code>, <code>aluno_id</code>, <code>curso_id</code> e <code>data_matricula</code>.</li>
-  </ul>
-
-  <h2 class="text-secondary mt-4">✅ O que deve ser entregue:</h2>
+  <h2>✅ Etapas:</h2>
   <ol>
-    <li>Criação das quatro tabelas acima.</li>
-    <li>Criação de uma <strong>function</strong> ou <strong>procedure</strong> que:
+    <li>
+      Crie uma <code>struct Stack</code> com:
       <ul>
-        <li>Adicione um registro na tabela de <code>logs_matricula</code> automaticamente ao ocorrer uma nova matrícula.</li>
-        <li>Atualize o campo <code>qtd_matriculados</code> na tabela <code>curso</code>, somando 1 a cada nova matrícula.</li>
+        <li>Um vetor interno (<code>Vec&lt;i32&gt;</code>);</li>
+        <li>Um campo <code>capacity: usize</code> que define o tamanho máximo da pilha.</li>
       </ul>
     </li>
-    <li>Criação de uma <strong>trigger</strong> que acione essa function após a inserção na tabela <code>matricula</code>.</li>
-    <li>Comandos de inserção para simular a matrícula de pelo menos um aluno em um curso.</li>
+    <li>Implemente as funções:
+      <ul>
+        <li><code>new(capacity: usize) -> Stack</code>: cria uma nova pilha vazia com capacidade definida.</li>
+        <li><code>push(&mut self, value: i32) -> bool</code>: insere um elemento se não estiver cheia, retorna <code>true</code> se conseguir.</li>
+        <li><code>pop(&mut self) -> Option&lt;i32&gt;</code>: remove e retorna o elemento do topo.</li>
+        <li><code>peek(&self) -> Option&lt;&i32&gt;</code>: retorna referência ao elemento no topo sem removê-lo.</li>
+        <li><code>is_empty(&self) -> bool</code></li>
+        <li><code>is_full(&self) -> bool</code></li>
+        <li><code>len(&self) -> usize</code></li>
+      </ul>
+    </li>
+    <li>No <code>main</code>:
+      <ul>
+        <li>Crie uma pilha com capacidade 3.</li>
+        <li>Insira três elementos e exiba o estado após cada <code>push</code>.</li>
+        <li>Tente inserir um quarto elemento e exiba mensagem de erro.</li>
+        <li>Visualize o topo com <code>peek</code> e exiba o resultado.</li>
+        <li>Remova os elementos um a um, mostrando o estado da pilha após cada <code>pop</code>.</li>
+        <li>Tente remover um item de uma pilha vazia e mostre a mensagem.</li>
+      </ul>
+    </li>
+    <li>
+      Comente o código explicando o funcionamento de cada bloco e função.
+    </li>
   </ol>
 
-  <h2 class="text-secondary mt-4">📝 Regras obrigatórias:</h2>
-  <ul>
-    <li>A trigger deve ser configurada para ser executada <strong>automaticamente após o INSERT</strong> na tabela de matrícula.</li>
-    <li>A function deve conter as duas operações exigidas: geração do log + atualização da contagem de alunos.</li>
-    <li>Os comandos devem ser organizados na ordem correta para execução direta no Supabase.</li>
-    <li><strong>Não envie um arquivo</strong> — o código SQL deve ser colado diretamente no formulário de envio.</li>
-  </ul>
+  <h2>🚀 Exemplo de saída esperada:</h2>
+  <pre class="bg-light p-3 rounded">
+Pilha criada com capacidade 3.
+Inserindo 10... OK
+Inserindo 20... OK
+Inserindo 30... OK
+Tentando inserir 40... Pilha cheia!
+Topo da pilha: 30
+Removido: 30
+Removido: 20
+Removido: 10
+Tentando remover... Pilha vazia!
+  </pre>
 
-  <h2 class="text-secondary mt-4">📤 Envio:</h2>
-  <p>Copie todo o seu código SQL (com <code>CREATE TABLE</code>, <code>CREATE FUNCTION</code>, <code>CREATE TRIGGER</code> e <code>INSERTS</code> de teste) e cole no formulário disponível abaixo:</p>
+  <h2>📦 Entrega:</h2>
+  <p>
+    Entregue um único arquivo chamado <strong>main.rs</strong> contendo toda a implementação da pilha e testes no <code>main()</code>.
+  </p>
 
-  <a class="btn btn-danger btn-lg w-100 mt-4" href="https://docs.google.com/forms/d/e/1FAIpQLSd_HW0MH8Y-EGSo5DzlBc7z2hqCDQLgbe4XE5CTpeud_VGKFQ/viewform?usp=dialog" target="_blank">
-    🚀 Enviar código via Formulário Google
+  <p>
+    Após finalizar, envie o arquivo através do botão abaixo:
+  </p>
+
+  <a class="btn btn-danger btn-lg w-100 mt-4" href="https://docs.google.com/forms/d/e/1FAIpQLSfbRktxqJgO8H-5iMda0eU9pGbciJ_wEK0E14o9p0zP4_r1Zg/viewform?usp=dialog" target="_blank">
+    🚀 Enviar arquivo main.rs
   </a>
 
 </body>
