@@ -2,86 +2,77 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Prova Prática – Arquitetura de Chatbot no draw.io</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2rem auto;
-      max-width: 800px;
-      line-height: 1.6;
-      color: #333;
-    }
-    h1, h2 {
-      color: #005792;
-    }
-    .submit-button {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      background-color: red;
-      color: white;
-      text-align: center;
-      font-size: 1.2rem;
-      text-decoration: none;
-      border-radius: 8px;
-      margin-top: 3rem;
-    }
-    .submit-button:hover {
-      background-color: darkred;
-    }
-  </style>
+  <title>Prova Prática – Arquitetura de Chatbot com Mermaid.js</title>
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Mermaid.js CDN -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </head>
-<body>
-  <h1>Link de Acesso: https://afonsofecaf.github.io/202505_prova_pratica</h1>
-  <h1>🧪 Prova Prática – Arquitetura de Chatbot</h1>
+<body class="bg-light">
+  <div class="container my-5">
+    <h1 class="mb-4 text-primary">
+      Link de Acesso: 
+      <span class="fw-normal text-dark">https://afonsofecaf.github.io/202505_prova_pratica</span>
+    </h1>
+    <h1 class="mb-4 text-primary">🧪 Prova Prática – Arquitetura de Chatbot</h1>
 
-  <h2>📌 Situação Complexa:</h2>
-  <p>
-    Imagine que você está desenvolvendo um <strong>chatbot inteligente para uma rede hospitalar de grande porte</strong>. 
-    Esse chatbot será responsável por atender pacientes em diversos setores, realizando as seguintes tarefas:
-  </p>
-  
-  <ul>
-    <li>📋 Agendamento automático de consultas com médicos de diferentes especialidades.</li>
-    <li>🩺 Responder dúvidas frequentes sobre procedimentos, exames e protocolos hospitalares.</li>
-    <li>💊 Auxiliar pacientes no gerenciamento de medicamentos, enviando lembretes automáticos.</li>
-    <li>🚑 Ativar protocolos de emergência quando detectado risco iminente através da análise de mensagens.</li>
-    <li>🔗 Integrar-se aos sistemas hospitalares para obter informações sobre disponibilidade de médicos, salas e equipamentos.</li>
-  </ul>
+    <h2 class="mt-4">📌 Situação Complexa:</h2>
+    <p>
+      Imagine que você está desenvolvendo um <strong>chatbot inteligente para uma rede hospitalar de grande porte</strong>. 
+      Esse chatbot será responsável por atender pacientes em diversos setores, realizando as seguintes tarefas:
+    </p>
+    <ul class="list-group mb-4">
+      <li class="list-group-item">📋 Agendamento automático de consultas com médicos de diferentes especialidades.</li>
+      <li class="list-group-item">🩺 Responder dúvidas frequentes sobre procedimentos, exames e protocolos hospitalares.</li>
+      <li class="list-group-item">💊 Auxiliar pacientes no gerenciamento de medicamentos, enviando lembretes automáticos.</li>
+      <li class="list-group-item">🚑 Ativar protocolos de emergência quando detectado risco iminente através da análise de mensagens.</li>
+      <li class="list-group-item">🔗 Integrar-se aos sistemas hospitalares para obter informações sobre disponibilidade de médicos, salas e equipamentos.</li>
+    </ul>
 
-  <h2>✅ Tarefa:</h2>
-  <p>
-    Você deve <strong>desenhar a arquitetura completa do chatbot</strong> utilizando a ferramenta <a href="https://app.diagrams.net/" target="_blank">draw.io</a>. O diagrama deve conter:
-  </p>
+    <h2 class="mt-4">✅ Tarefa:</h2>
+    <p>
+      <strong>Você deve desenhar a arquitetura completa do chatbot exclusivamente com <a href="https://mermaid.js.org/" target="_blank">Mermaid.js</a></strong>.
+      O diagrama deve conter:
+    </p>
+    <ul class="list-group mb-4">
+      <li class="list-group-item">Fluxo de comunicação entre os componentes principais.</li>
+      <li class="list-group-item">Plataformas de entrada (ex.: WhatsApp, site, aplicativo).</li>
+      <li class="list-group-item">Módulo de NLP (Processamento de Linguagem Natural).</li>
+      <li class="list-group-item">Mecanismos de integração com sistemas hospitalares.</li>
+      <li class="list-group-item">Bases de conhecimento e banco de dados.</li>
+      <li class="list-group-item">Camadas de segurança e autenticação.</li>
+      <li class="list-group-item">Fluxos de decisão em caso de emergência.</li>
+    </ul>
 
-  <ul>
-    <li>Fluxo de comunicação entre os componentes principais.</li>
-    <li>Plataformas de entrada (ex.: WhatsApp, site, aplicativo).</li>
-    <li>Módulo de NLP (Processamento de Linguagem Natural).</li>
-    <li>Mecanismos de integração com sistemas hospitalares.</li>
-    <li>Bases de conhecimento e banco de dados.</li>
-    <li>Camadas de segurança e autenticação.</li>
-    <li>Fluxos de decisão em caso de emergência.</li>
-  </ul>
+    <p>
+      <strong>Importante:</strong> Você deverá enviar o <span class="text-danger fw-bold">código fonte do seu diagrama Mermaid.js</span> através do formulário indicado abaixo. Não é necessário enviar arquivos PDF ou imagens, apenas o código Mermaid.
+    </p>
 
-  <p>
-    O diagrama deve ser salvo no formato <strong>.pdf</strong> e enviado através do formulário indicado abaixo.
-  </p>
+    <h2 class="mt-4">⚠️ Orientações:</h2>
+    <ul class="list-group mb-4">
+      <li class="list-group-item">O uso do <strong>Mermaid.js</strong> é obrigatório.</li>
+      <li class="list-group-item">Capriche na clareza e na organização do diagrama.</li>
+      <li class="list-group-item">Inclua legendas e explicações no próprio código, se necessário.</li>
+      <li class="list-group-item">Envie <strong>apenas o código Mermaid</strong> (exemplo: tudo que está entre <code>graph TD</code> e o final do diagrama).</li>
+    </ul>
 
-  <h2>⚠️ Importante:</h2>
-  <ul>
-    <li>O uso do draw.io é obrigatório.</li>
-    <li>Capriche na clareza e na organização do diagrama.</li>
-    <li>Inclua legendas e explicações se necessário.</li>
-  </ul>
+    <div class="alert alert-info mt-4">
+      <strong>Dica:</strong> Crie, edite e visualize seu diagrama no 
+      <a href="https://mermaid.live/edit#pako:eNpVjbFugzAQhl_FuqmVSEQIxsFDpYa0WSK1Q6ZChhM4GCXYyBilKeTda4iqtjf5_H3_fz3kuhDA4XjWl1yisWS_yRRx85wm0lStrbE9kNnsadgKS2qtxHUg64etJq3UTVOp8vHur0eJJP1u1ASxslKn2x0lU_5NiYFs0h02VjeHv2R_0QN5Sat36er_E2mES72mR-RHnOVoSIJmUsCD0lQFcGs64UEtTI3jCv1IM7BS1CID7p4FmlMGmbq5TIPqQ-v6J2Z0V0pw3efWbV1ToBWbCkuDv4pQhTCJ7pQFvlhOFcB7-AQesHgeh5T5izCicbQMqQdX903n4ZKFq2gVU0ZjGtw8-JqO-vMVo76bIPIZ8wOHvgGeAnWs" target="_blank">Mermaid Live Editor</a>. Após finalizar, copie o código e envie pelo formulário.
+    </div>
 
-  <p>
-    Quando finalizar, envie o arquivo através do botão abaixo:
-  </p>
+    <p class="mt-3">
+      Quando finalizar, envie o código do seu diagrama Mermaid.js através do botão abaixo:
+    </p>
 
-  <a class="submit-button" href="https://docs.google.com/forms/d/e/1FAIpQLSd-xxhwDsnD3oEH-E_VSAP6tvhy2_SPJB_t2cWW67D2OTnTKA/viewform?usp=dialog" target="_blank">
-    🚀 Enviar Arquitetura de Chatbot
-  </a>
-
+    <a class="btn btn-danger btn-lg w-100 mt-4" href="https://docs.google.com/forms/d/e/1FAIpQLSd-xxhwDsnD3oEH-E_VSAP6tvhy2_SPJB_t2cWW67D2OTnTKA/viewform?usp=dialog" target="_blank">
+      🚀 Enviar Código do Diagrama Mermaid.js
+    </a>
+  </div>
+  <!-- Bootstrap JS (opcional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
